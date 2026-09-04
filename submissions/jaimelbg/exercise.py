@@ -60,6 +60,7 @@ def pandas_revenue_by_region(sales: pd.DataFrame) -> pd.DataFrame:
     sales = sales.copy()
     sales["revenue"] = sales["quantity"] * sales["unit_price"]
     result = sales.groupby("region", as_index=False)["revenue"].sum()
+    
     return result
 
 
@@ -104,8 +105,6 @@ def sql_revenue_by_region(csv_path: Path) -> pd.DataFrame:
             """,
             connection,
         )
-
-
 # ---------------------------------------------------------------------------
 # 4. Deep learning stack check
 # ---------------------------------------------------------------------------
